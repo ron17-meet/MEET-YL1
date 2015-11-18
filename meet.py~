@@ -58,7 +58,7 @@ class Cell(Turtle):
 # and returns a cell object with the dictionaries information
 def create_cell(cell):
 	getscreen().tracer(0)
-6	if ('color' in cell.keys()):
+	if ('color' in cell.keys()):
 		c = Cell(cell['radius'],cell['x'],cell['y'],cell['dx'],cell['dy'],cell['color'])
 	else:
 		c = Cell(cell['radius'],cell['x'],cell['y'],cell['dx'],cell['dy'])
@@ -161,4 +161,4 @@ def get_random_y():
 ######################################################################
 
 canvas.bind("<Motion>", movearound) # this line tells turtle to call the function movearound (we defined above) everytime the mouse moves
-getscreen().listen() # this line tells the screen in turtle to listen to the keyboard and the mouse, because we are using them```````````
+getscreen().listen() # this line tells the screen in turtle to listen to the keyboard and the mouse, because we are using them
