@@ -58,7 +58,7 @@ class Cell(Turtle):
 # and returns a cell object with the dictionaries information
 def create_cell(cell):
 	getscreen().tracer(0)
-6	if ('color' in cell.keys()):
+	if ('color' in cell.keys()):
 		c = Cell(cell['radius'],cell['x'],cell['y'],cell['dx'],cell['dy'],cell['color'])
 	else:
 		c = Cell(cell['radius'],cell['x'],cell['y'],cell['dx'],cell['dy'])
