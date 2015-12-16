@@ -5,9 +5,105 @@ import math
 import time
 import turtle
 
+import os
+
+#screen.bgpic("landscape.gif")
+##UP = 0
+##DOWN = 1
+##LEFT = 2
+##RIGHT = 3
+##
+##
+##UP_ARROW = "Up"
+##
+##LEFT_ARROW = "Left"
+##
+##DOWN_ARROW = "Down"
+##
+##RIGHT_ARROW = "Right"
+##
+##TIME_STEP = 100
+##
+##
+##direction = UP
+##UP_EDGE = 250
+##
+##DOWN_EDGE = -250
+##
+##RIGHT_EDGE = 400
+##
+##LEFT_EDGE = -400
+##
+##def up():
+##
+##    global direction #Listen for global direction
+##
+##    direction=UP
+##
+##def down():
+##
+##    global direction #Listen for global direction
+##
+##    direction=DOWN
+##
+##def left():
+##
+##    global direction #Listen for global direction
+##
+##    direction=LEFT
+##
+##
+##def right():
+##
+##    global direction #Listen for global direction
+##
+##    direction=RIGHT
+##
+##turtle.onkeypress(up,UP_ARROW)
+##turtle.onkeypress(down,DOWN_ARROW)
+##turtle.onkeypress(left,LEFT_ARROW)
+##turtle.onkeypress(right,RIGHT_ARROW)
+##getscreen().listen()
+
+#def arrowMove(user_cell):
+##        while not turtle.forward():                        
+##                turtle.dig()
+##                end
+##        if direction==RIGHT:
+##                #user_cell.setheading(0)
+##                user_cell.forward(16)
+##        elif direction==LEFT:
+##                #user_cell.setheading(180)
+##                user_cell.forward(16)
+##        elif direction==UP:
+##                #user_cell.setheading(90)
+##                user_cell.forward(7)
+##        elif direction ==DOWN:
+##                #user_cell.setheading(270)
+##                user_cell.forward(7)
+##                
+##def gameOptions():
+##        turtle.write("keyboard control", align="right", font=('ariel',50,bold))
+##        turtle.write("mouse control", align="left", font=('ariel',50,bold))
+##        os.system("pause") 
+##        if direction==RIGHT:
+##                #arrowMove()
+##                countdown(count)
+##        elif direction==LEFT:
+##                canvas.bind("<Motion>", movearound)
+##                countdown(count)
+                
+def countdown(count):
+        while (count >= 0):
+                turtle.write(count, align="center", font=('Ariel',50,'bold'))
+                count -= 1
+                time.sleep(1)
+                turtle.clear()
+
+countdown(3)
 colors = ["red", "orange", "yellow", "green", "blue", "violet", "cyan"]
 
-user_cell={"radius":10, "x":0, "y":0, "dx":0, "dy":0, "color":random.choice(colors)} 
+user_cell={"radius":20, "x":0, "y":0, "dx":0, "dy":0, "color":random.choice(colors)} 
 
 cells=[]
 user_cell = create_cell(user_cell)
@@ -16,7 +112,7 @@ cells.append(user_cell)
 colors = ["red", "orange", "yellow", "green", "blue", "violet", "cyan", "grey"]
 cells_num=0
 for i in range(20):
-	ball1 = {"radius":random.randint(0,50), "x":random.randint(-250,250), "y":random.randint(-250,250), "dy":random.uniform(-0.25,0.25), "dx":random.uniform(-0.25,0.25), "color":random.choice(colors)}
+	ball1 = {"radius":random.randint(0,20), "x":random.randint(-250,250), "y":random.randint(-250,250), "dy":random.uniform(-0.30,0.30), "dx":random.uniform(-0.30,0.30), "color":random.choice(colors)}
 	circle1 = create_cell(ball1)
 	cells.append(circle1)
 	cells_num=cells_num+1
@@ -68,13 +164,26 @@ def eat(cells):
 
 
 while(True):
-	meet.move_cells(cells)
-	x,y = meet.get_user_direction(user_cell)
-	user_cell.set_dx(x)
-	user_cell.set_dy(y)
-	borders(cells)
-	eat(cells)
-	if ((circle1.xcor()==get_x_mouse())or(circle1.ycor()==get_y_mouse())):
-		circle1.goto(300, 300)
+        #arrowMove(user_cell)
+        #gameOptions()
+        meet.move.cells(cells)
+        x,y = meet.get_user_direction(user_cell)
+        user_cell.set_dx(x)
+        user_cell.set_dy(y)
+        borders(cells)
+        eat(cells)
+        if ((circle1.xcor()==get_x_mouse())or(circle1.ycor()==get_y_mouse())):
+                circle1.goto(300, 300)
+        
+##        arrowMove()
+##        #gameOptions()
+##	#meet.move_cells(cells)
+##	x,y = meet.get_user_direction(user_cell)
+##	user_cell.set_dx(x)
+##	user_cell.set_dy(y)
+##	borders(cells)
+##	eat(cells)
+##	if ((circle1.xcor()==get_x_mouse())or(circle1.ycor()==get_y_mouse())):
+##		circle1.goto(300, 300)
 
 meet.mainloop()
