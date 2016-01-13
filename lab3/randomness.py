@@ -1,10 +1,12 @@
+import msvcrt
 import random
 tries = 0
 def coin_Toss():
 	coin = random.randint(1, 2)
 	if coin == 1:
 	    print('Heads')
-	if coin == 2:
+	elif coin == 2:
 	    print ('Tails')
-onkeypress=Enter:
+key=msvcrt()
+if key==enter:
 	coin_Toss()
